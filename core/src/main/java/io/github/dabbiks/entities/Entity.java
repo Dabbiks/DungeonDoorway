@@ -11,11 +11,21 @@ public abstract class Entity {
     public int y;
 
     // * STATS
+    public String name;
     public int health;
     public int maxHealth;
     public int absorption;
     public int baseDamage;
     public int baseSpeed;
+
+    public Entity(String name, int spriteId, int maxHealth, int baseDamage, int baseSpeed) {
+        this.name = name;
+        this.spriteId = spriteId;
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
+        this.baseDamage = baseDamage;
+        this.baseSpeed = baseSpeed;
+    }
 
     // * STATUS EFFECTS
     public static final int POISONED = 0x001;
@@ -34,6 +44,7 @@ public abstract class Entity {
 
     public void toggleEffect(int effect) { status ^= effect; }
 
+    // * LIFECYCLE
     public abstract void tick();
 
 }
