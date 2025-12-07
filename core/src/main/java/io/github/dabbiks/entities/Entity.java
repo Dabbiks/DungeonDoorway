@@ -19,24 +19,24 @@ public abstract class Entity {
     public int baseSpeed;
 
     public Entity(String name, int spriteId, int maxHealth, int baseDamage, int baseSpeed) {
-        this.name = name;
-        this.spriteId = spriteId;
-        this.maxHealth = maxHealth;
-        this.health = maxHealth;
+        this.name       = name;
+        this.spriteId   = spriteId;
+        this.maxHealth  = maxHealth;
+        this.health     = maxHealth;
         this.baseDamage = baseDamage;
-        this.baseSpeed = baseSpeed;
+        this.baseSpeed  = baseSpeed;
     }
 
     // * STATUS EFFECTS
     public static final int POISONED = 0x001;
-    public static final int IGNITED = 0x002;
-    public static final int STUNNED = 0x004;
+    public static final int IGNITED  = 0x002;
+    public static final int STUNNED  = 0x004;
 
     private int status;
 
-    public int getStatus() { return status; }
+    public int getStatus()               { return status; }
 
-    public void addEffect(int effect) { status |= effect; }
+    public void addEffect(int effect)    { status |= effect; }
 
     public void removeEffect(int effect) { status &= ~effect; }
 

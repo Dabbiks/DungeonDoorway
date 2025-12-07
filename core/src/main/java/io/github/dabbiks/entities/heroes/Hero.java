@@ -14,10 +14,10 @@ public abstract class Hero extends Entity {
     public Hero(String name, int spriteId, int maxHealth, int baseDamage, int baseSpeed, int maxHunger, int maxSanity) {
         super(name, spriteId, maxHealth, baseDamage, baseSpeed);
         this.maxHunger = maxHunger;
-        this.hunger = maxHunger;
+        this.hunger    = maxHunger;
         this.maxSanity = maxSanity;
-        this.sanity = maxSanity;
-        this.strength = 5;
+        this.sanity    = maxSanity;
+        this.strength  = 5;
     }
 
 }

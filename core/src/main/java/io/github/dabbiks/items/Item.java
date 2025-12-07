@@ -12,11 +12,11 @@ public abstract class Item {
     public int maxCount;
 
     public Item(String name, int spriteId, int value, int maxCount) {
-        this.name = name;
+        this.name     = name;
         this.spriteId = spriteId;
-        this.value = value;
+        this.value    = value;
         this.maxCount = maxCount;
-        this.count = 1;
+        this.count    = 1;
     }
 
 }
