@@ -82,8 +82,9 @@ public class DungeonAssets implements Disposable {
 
     private TextureRegion getDeterministicVariant(Array<TextureRegion> list, int x, int y) {
         if (list.size == 0) return errorTexture;
-        int idx = (x * 73856093 ^ y * 19349663) % list.size;
-        return list.get(Math.abs(idx));
+        int hash = (x * 73856093 ^ y * 19349663);
+        int idx = (hash & 0x7FFFFFFF) % list.size;
+        return list.get(idx);
     }
 
     private boolean isOOB(int idx) { return idx < 0 || idx >= Bitmask.COMBINATIONS; }
