@@ -2,7 +2,7 @@ package io.github.dabbiks.entities.components;
 
 import com.badlogic.gdx.math.MathUtils;
 
-public class SanityComponent {
+public class SanityComponent implements Component {
     private int current;
     private int max;
 
@@ -12,10 +12,12 @@ public class SanityComponent {
     }
 
     public void add(int amount) {
-        this.current = MathUtils.clamp(this.current - amount, 0, max);
+        this.current = MathUtils.clamp(this.current + amount, 0, max);
     }
 
     public void subtract(int amount) {
-        this.current = MathUtils.clamp(this.current + amount, 0, max);
+        this.current = MathUtils.clamp(this.current - amount, 0, max);
     }
+
+    public int getCurrent() { return current; }
 }

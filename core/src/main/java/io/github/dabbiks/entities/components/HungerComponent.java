@@ -1,6 +1,6 @@
 package io.github.dabbiks.entities.components;
 
-public class HungerComponent {
+public class HungerComponent implements Component {
     private int current;
     private int max;
 
@@ -9,11 +9,11 @@ public class HungerComponent {
         this.current = max;
     }
 
-    public void add(int amount) {
-        this.current += amount;
+    public void eat(int amount) {
+        this.current = Math.min(this.current + amount, max);
     }
 
-    public void subtract(int amount) {
-        this.current -= amount;
+    public void starve(int amount) {
+        this.current = Math.max(this.current - amount, 0);
     }
 }
