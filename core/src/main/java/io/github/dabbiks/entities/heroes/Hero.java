@@ -1,23 +1,31 @@
 package io.github.dabbiks.entities.heroes;
 
 import io.github.dabbiks.entities.Entity;
+import io.github.dabbiks.entities.components.HungerComponent;
+import io.github.dabbiks.entities.components.SanityComponent;
+import io.github.dabbiks.entities.components.StrengthComponent;
 
 public abstract class Hero extends Entity {
 
-    // * STATS
-    public int hunger;
-    public int maxHunger;
-    public int sanity;
-    public int maxSanity;
-    public int strength;
+    // * COMPONENTS
+    public HungerComponent hunger;
+    public SanityComponent sanity;
+    public StrengthComponent strength;
 
-    public Hero(String name, int spriteId, int maxHealth, int baseDamage, int baseSpeed, int maxHunger, int maxSanity) {
-        super(name, spriteId, maxHealth, baseDamage, baseSpeed);
-        this.maxHunger = maxHunger;
-        this.hunger    = maxHunger;
-        this.maxSanity = maxSanity;
-        this.sanity    = maxSanity;
-        this.strength  = 5;
+    public Hero(String name, int spriteId) {
+        super(name, spriteId);
+    }
+
+    public void enableHungerComponent(int max) {
+        hunger = new HungerComponent(max);
+    }
+
+    public void enableSanityComponent(int max) {
+        sanity = new SanityComponent(max);
+    }
+
+    public void enableStrengthComponent(int value) {
+        strength = new StrengthComponent(value);
     }
 
 }

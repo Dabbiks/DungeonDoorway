@@ -1,5 +1,9 @@
 package io.github.dabbiks.entities;
 
+import io.github.dabbiks.entities.components.DamageComponent;
+import io.github.dabbiks.entities.components.HealthComponent;
+import io.github.dabbiks.entities.components.MovementComponent;
+
 public abstract class Entity {
 
     // * IDS
@@ -12,20 +16,20 @@ public abstract class Entity {
 
     // * STATS
     public String name;
-    public int health;
-    public int maxHealth;
-    public int absorption;
-    public int baseDamage;
-    public int baseSpeed;
+    public HealthComponent health;
+    public DamageComponent damage;
+    public MovementComponent movement;
 
-    public Entity(String name, int spriteId, int maxHealth, int baseDamage, int baseSpeed) {
-        this.name       = name;
-        this.spriteId   = spriteId;
-        this.maxHealth  = maxHealth;
-        this.health     = maxHealth;
-        this.baseDamage = baseDamage;
-        this.baseSpeed  = baseSpeed;
+    public Entity(String name, int spriteId) {
+        this.name     = name;
+        this.spriteId = spriteId;
     }
+
+    public void enableHealthComponent (int max) { health = new HealthComponent(max); }
+
+    public void enableDamageComponent () { damage = new DamageComponent(); }
+
+    public void enableMovementComponent (int value) { movement = new MovementComponent(value); }
 
     // * STATUS EFFECTS
     public static final int POISONED = 0x001;

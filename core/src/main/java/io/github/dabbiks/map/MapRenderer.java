@@ -43,7 +43,6 @@ public class MapRenderer {
     }
 
     private void drawObjects(SpriteBatch batch, int x, int y) {
-        int
     }
 
 }
