@@ -35,4 +35,8 @@ public class HealthComponent implements Component {
     }
 
     public int getCurrent() { return current; }
+
+    public int getAbsorption() { return absorption; }
+
+    public int getMax() { return max; }
 }
