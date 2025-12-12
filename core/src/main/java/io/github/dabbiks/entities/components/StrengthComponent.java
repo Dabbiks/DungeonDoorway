@@ -14,4 +14,8 @@ public class StrengthComponent {
     public void subtract(int amount) {
         this.current -= amount;
     }
+
+    public boolean compare(int min) {
+        return current >= min;
+    }
 }
